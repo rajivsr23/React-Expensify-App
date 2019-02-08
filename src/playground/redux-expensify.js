@@ -5,7 +5,8 @@ import uuid from 'uuid'
 //Action Generators
 const addExpense=({description='',
 note='',
-amount=''
+amount='',
+createdAt=''
 }={})=>({
 type: 'Add_Expense',
 
@@ -14,7 +15,7 @@ expense:{
 description: description,
 note: note,
 amount: amount,
-createdAt:0
+createdAt:createdAt
 }
 
 });
@@ -131,7 +132,7 @@ const filtersReducer=(state=filtersReducerDefaultState,action)=>{
         default: return state
     }
 };
-
+//First you start a project and then you create something. If the Items return true, it stays in the Array
 //Visible expenses
 const getVisibleExpenses=(expenses,{text,sortBy,startDate,endDate})=>{
 return expenses.filter((expense)=>{
@@ -146,7 +147,7 @@ const endDateMatch=typeof endDate !=='number' || endDate>=expense.createdAt;
 //Creating the Store 
 
 const store=createStore(combineReducers({
-expense: expensesReducer,
+expenses: expensesReducer,
 filters:filtersReducer
 })
 );
@@ -165,13 +166,13 @@ console.log(visibleExpenses);
 const expenseOne=store.dispatch(addExpense({
     description:'rent',
     amount: '100',
-    createdAt: '1000'
+    createdAt: '3000'
 }));
 
 const expenseTwo=store.dispatch(addExpense({
     description:'coffee',
     amount: '200',
-    createdAt: '-1000'
+    createdAt: '4000'
 }));
 
 // store.dispatch(removeExpense({  id:expenseOne.expense.id}));
@@ -183,11 +184,11 @@ const expenseTwo=store.dispatch(addExpense({
 // store.dispatch(setTextFilter());
 // store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());
-store.dispatch(setStartDate(125));
+store.dispatch(setStartDate(2000));
 // store.dispatch(setStartDate());
-// store.dispatch(setEndDate(1250));
+store.dispatch(setEndDate(2999));
 const demoState={
-expenses : [{
+expense : [{
 id: 123345,
 description: 'January Rent',
 note: 'This is my final payment for that address',
