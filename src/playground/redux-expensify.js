@@ -136,7 +136,8 @@ const filtersReducer=(state=filtersReducerDefaultState,action)=>{
 //Visible expenses
 const getVisibleExpenses=(expenses,{text,sortBy,startDate,endDate})=>{
 return expenses.filter((expense)=>{
-const textMatch=true;
+    const description=expense.description.toLowerCase();
+const textMatch=expense.description.toLowerCase().includes(text.toLowerCase());
 const startDateMatch=typeof startDate !=='number'||expense.createdAt>=startDate;
 const endDateMatch=typeof endDate !=='number' || endDate>=expense.createdAt;
 
@@ -184,9 +185,10 @@ const expenseTwo=store.dispatch(addExpense({
 // store.dispatch(setTextFilter());
 // store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());
-store.dispatch(setStartDate(2000));
+// store.dispatch(setStartDate(2000));
 // store.dispatch(setStartDate());
-store.dispatch(setEndDate(2999));
+// store.dispatch(setEndDate(2999));
+store.dispatch(setTextFilter('ee'));
 const demoState={
 expense : [{
 id: 123345,
