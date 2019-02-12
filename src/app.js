@@ -12,7 +12,8 @@ import './styles/styles.scss';
 
 const store=configureStore();
 store.dispatch(addExpense ({
-    description: 'Water bill'
+    description: 'Water bill',
+    amount: 3300
 }));
 
 store.dispatch(addExpense ({

@@ -1,9 +1,9 @@
  import React from 'react';
-export default(props)=>(
+export default({description,amount,createdAt})=>(
 <div>
-<h3>{props.expenses.description} </h3>
-<p>{props.expenses.amount} </p>
-<p>{props.expenses.createdAt} </p>
+<h3>{description} </h3>
+<p>Amount: {amount} </p>
+<p>Created At: {createdAt} </p>
 </div>
 
 );
