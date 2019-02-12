@@ -18,3 +18,4 @@ filters: state.filters
 
 };
 export default connect(mapStateToProps)(ExpenseList);
+ 
