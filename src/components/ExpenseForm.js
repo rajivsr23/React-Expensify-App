@@ -1,6 +1,12 @@
 import React from 'react';
 
 export default class ExpenseForm extends React.Component{
+
+    state=
+    {
+
+        description: ''
+    };
     render(){
 
         return(
@@ -20,8 +26,8 @@ export default class ExpenseForm extends React.Component{
     placeholder="Add a note for your expense (optional)"
     >
     
-    </textarea>
-    
+    </textarea><br/>
+    <button>Add Expense</button>
     </form>
     </div>
         )
