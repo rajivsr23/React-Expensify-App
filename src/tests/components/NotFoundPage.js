@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Header from '../../components/Header';
+import HeaNotFoundPage from '../../components/NotFoundPage';
 import toJSON from 'enzyme-to-json';
 
 test('should render Header correctly',()=>{
